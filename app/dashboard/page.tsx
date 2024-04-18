@@ -81,10 +81,10 @@ export default async function DashboardPage() {
           </div>
 
           <h2 className="mt-6 text-xl font-semibold">
-            You Don't have any notes created
+            You Do not have any notes created
           </h2>
           <p className="mb-8 mt-2 text-center text-sm leading-6 text-muted-foreground max-w-sm mx-auto">
-            You currently don't have any notes. please create some so that you
+            You currently do not have any notes. please create some so that you
             can them right here
           </p>
 
