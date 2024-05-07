@@ -29,6 +29,11 @@ STRIPE_WEBHOOK_SECRET =
 ```
 
 Third, run the development server:
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
