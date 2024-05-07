@@ -4,7 +4,31 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, clone this respitory : 
+```bash
+https://github.com/SilvaLian0410/Silva-Note.git
+```
+
+Second, create an .env file fill in : 
+```bash
+KINDE_CLIENT_ID=
+KINDE_CLIENT_SECRET=
+KINDE_ISSUER_URL=
+
+KINDE_SITE_URL=
+KINDE_POST_LOGOUT_REDIRECT_URL=
+KINDE_POST_LOGIN_REDIRECT_URL=
+
+DATABASE_URL=
+DIRECT_URL=
+
+STRIPE_SECRET_KEY = 
+STRIPE_PRICE_ID =
+
+STRIPE_WEBHOOK_SECRET =
+```
+
+Third, run the development server:
 
 ```bash
 npm run dev
