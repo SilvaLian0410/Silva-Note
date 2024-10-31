@@ -1,5 +1,6 @@
 import Image from "next/image"; // Make sure to import Image
 import { Button } from "@/components/ui/button";
+import { ThemeAwareLogos } from "@/components/theme-aware-logo"
 import {
   RegisterLink,
   LoginLink,
@@ -61,27 +62,10 @@ export default async function Home() {
 
       {/* Trusted By Section */}
       <section className="container mx-auto px-20 py-20 text-center">
-        <p className="text-gray-400 mb-8 lg:text-xl">
-          Trusted by big tech companies and universites at over <b>1,000</b>
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 items-center justify-center opacity-70">
-          {[
-            { name: "Google", logo: "/logo/Google.png" },
-            { name: "Meta", logo: "/logo/Meta.png" },
-            { name: "Microsoft", logo: "/logo/Microsoft.png" },
-            { name: "UTM", logo: "/logo/UTM.png" },
-          ].map((brand) => (
-            <div key={brand.name} className="flex items-center justify-center">
-              <Image
-                src={brand.logo}
-                alt={brand.name}
-                width={150}
-                height={40}
-                className="opacity-50 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          ))}
-        </div>
+      <p className="text-black dark:text-gray-400 mb-8 lg:text-xl">
+     Trusted by big tech companies and universities at over <b>1,000</b>
+   </p>
+        <ThemeAwareLogos />
       </section>
 
       {/* Features Section */}
@@ -90,17 +74,17 @@ export default async function Home() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Follow Your Style
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto lg:text-xl">
+          <p className="text-black dark:text-gray-400 max-w-2xl mx-auto lg:text-xl">
             Check out our amazing features and of Silva Notes for yourself.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
-            <h3 className="text-xl font-semibold text-white mb-2">
+          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
+            <h3 className="text-black dark:text-white text-xl font-semibold mb-2">
               Color Themes
             </h3>
-            <p className="text-gray-400 mb-4">
+            <p className="text-black dark:text-gray-400 mb-4">
               Personalize your experience with a wide range of vibrant and
               customizable palettes, designed to match every mood and style.
               Whether you prefer calming hues, bold contrasts, or soft pastels,
@@ -113,11 +97,11 @@ export default async function Home() {
             </RegisterLink>
           </div>
 
-          <div className="bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
-            <h3 className="text-xl font-semibold text-white mb-2">
+          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
+            <h3 className="text-black dark:text-white text-xl font-semibold mb-2">
               Light and Dark Mode Support
             </h3>
-            <p className="text-gray-400 mb-4">
+            <p className="text-black dark:text-gray-400 mb-4">
               Switch effortlessly between light and dark themes to suit any
               setting or time of day. Enjoy optimal visibility and comfort with
               modes tailored to reduce eye strain and enhance focus, whether
@@ -132,11 +116,11 @@ export default async function Home() {
         </div>
 
         {/* Powerful Analytics Section */}
-        <div className="w-full bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800 mt-8">
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 text-start">
+        <div className="w-full bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800 mt-8">
+          <h3 className="text-black dark:text-white text-2xl md:text-3xl font-bold mb-4 text-start">
             Upcoming Features
           </h3>
-          <ul className="text-gray-400 mb-6 text-start space-y-4">
+          <ul className="text-black dark:text-gray-400 mb-6 text-start space-y-4">
             <li>
               <strong>Mobile App</strong> – Access insights and analytics
               on-the-go with our intuitive mobile app. Stay connected and make
@@ -162,7 +146,9 @@ export default async function Home() {
           </ul>
           <div className="flex justify-start">
             <RegisterLink>
-              <Button size="lg">Sign Up For Free</Button>
+              <Button size="lg">
+                Sign Up For Free
+              </Button>
             </RegisterLink>
           </div>
         </div>
@@ -172,21 +158,21 @@ export default async function Home() {
       <section className="container mx-auto px-4 md:px-20 py-20">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Pricing Plans</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto lg:text-xl">
+          <p className="text-black dark:text-gray-400 max-w-2xl mx-auto lg:text-xl">
             Choose a plan that fits your needs and start organizing your notes
             today.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
-            <h3 className="text-xl font-semibold text-white mb-2">
+          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
+            <h3 className="text-black dark:text-white text-xl font-semibold mb-2">
               Basic Plan
             </h3>
-            <p className="text-gray-400 mb-4">
+            <p className="text-black dark:text-gray-400 mb-4">
               Ideal for individuals looking to get started with note-taking.
             </p>
-            <div className="text-white text-2xl mb-4">$30/month</div>
+            <div className="text-black dark:text-white text-2xl mb-4">$30/month</div>
             <RegisterLink>
               <Button variant="link" className="text-primary p-0 mb-4">
                 Get Started
@@ -194,14 +180,14 @@ export default async function Home() {
             </RegisterLink>
           </div>
 
-          <div className="bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
-            <h3 className="text-xl font-semibold text-white mb-2">
-              Pro Plan ( Coming Soon)
+          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
+            <h3 className="text-black dark:text-white text-xl font-semibold mb-2">
+              Pro Plan (Coming Soon)
             </h3>
-            <p className="text-gray-400 mb-4">
+            <p className="text-black dark:text-gray-400 mb-4">
               Perfect for professionals who need advanced features and support.
             </p>
-            <div className="text-white text-2xl mb-4">$60/month</div>
+            <div className="text-black dark:text-white text-2xl mb-4">$60/month</div>
             <RegisterLink>
               <Button variant="link" className="text-primary p-0 mb-4">
                 Get Started
@@ -209,15 +195,15 @@ export default async function Home() {
             </RegisterLink>
           </div>
 
-          <div className="bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
-            <h3 className="text-xl font-semibold text-white mb-2">
-              Premium Plan ( Coming Soon)
+          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
+            <h3 className="text-black dark:text-white text-xl font-semibold mb-2">
+              Premium Plan (Coming Soon)
             </h3>
-            <p className="text-gray-400 mb-4">
+            <p className="text-black dark:text-gray-400 mb-4">
               For teams and organizations that require full access and
               collaboration tools.
             </p>
-            <div className="text-white text-2xl mb-4">$90/month</div>
+            <div className="text-black dark:text-white text-2xl mb-4">$90/month</div>
             <RegisterLink>
               <Button variant="link" className="text-primary p-0 mb-4">
                 Get Started
