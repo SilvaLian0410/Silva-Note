@@ -34,6 +34,13 @@ Third, run the development server:
 npm install
 ```
 
+After putting your database DATABASE_URL= and DIRECT_URL=, run : 
+```bash
+npx prisma db push
+```
+To pushes the state of your Prisma schema to the database without using migrations.
+
+
 Then, run the development server:
 
 ```bash
