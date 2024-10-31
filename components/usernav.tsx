@@ -10,8 +10,8 @@ import {
 
 export const navItems = [
     {name : 'Home', href: '/dashboard', icon: Home},
-    {name : 'Settings', href: '/settings', icon: Settings},
-    {name : 'Billing', href: '/billing', icon: CreditCard},
+    {name : 'Settings', href: 'dashboard/settings', icon: Settings},
+    {name : 'Billing', href: 'dashboard/billing', icon: CreditCard},
 ]
 
 export function UserNav({name,email,image} : {name:string, email:string, image:string}) {
