@@ -80,7 +80,7 @@ export default async function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
+          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12">
             <h3 className="text-black dark:text-white text-xl font-semibold mb-2">
               Color Themes
             </h3>
@@ -97,7 +97,7 @@ export default async function Home() {
             </RegisterLink>
           </div>
 
-          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
+          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12">
             <h3 className="text-black dark:text-white text-xl font-semibold mb-2">
               Light and Dark Mode Support
             </h3>
@@ -116,7 +116,7 @@ export default async function Home() {
         </div>
 
         {/* Powerful Analytics Section */}
-        <div className="w-full bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800 mt-8">
+        <div className="w-full bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12  mt-8">
           <h3 className="text-black dark:text-white text-2xl md:text-3xl font-bold mb-4 text-start">
             Upcoming Features
           </h3>
@@ -165,7 +165,7 @@ export default async function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
+          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12">
             <h3 className="text-black dark:text-white text-xl font-semibold mb-2">
               Basic Plan
             </h3>
@@ -180,7 +180,7 @@ export default async function Home() {
             </RegisterLink>
           </div>
 
-          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
+          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12">
             <h3 className="text-black dark:text-white text-xl font-semibold mb-2">
               Pro Plan (Coming Soon)
             </h3>
@@ -195,7 +195,7 @@ export default async function Home() {
             </RegisterLink>
           </div>
 
-          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12 border border-gray-800">
+          <div className="bg-secondary dark:bg-gray-900/50 rounded-xl p-6 md:p-12">
             <h3 className="text-black dark:text-white text-xl font-semibold mb-2">
               Premium Plan (Coming Soon)
             </h3>
