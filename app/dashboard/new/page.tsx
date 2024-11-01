@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
-import { unstable_noStore as noStore } from "next/cache";
+import { unstable_noStore as noStore, revalidatePath } from "next/cache";
 
 export default async function NewNoteRoute() {
   noStore();
@@ -32,7 +32,12 @@ export default async function NewNoteRoute() {
     const title = formData.get("title") as string;
     const description = formData.get("description") as string;
 
-    await prisma.note.create({
+    // Set a timeout for the database operation
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error("Database operation timed out")), 30000)
+    );
+
+    const dbOperation = prisma.note.create({
       data: {
         userId: user?.id,
         description: description,
@@ -40,6 +45,9 @@ export default async function NewNoteRoute() {
       },
     });
 
+    // Race between timeout and database operation
+    await Promise.race([dbOperation, timeoutPromise]);
+    revalidatePath("/dashboard");  
     return redirect("/dashboard");
   }
 
