@@ -27,6 +27,8 @@ STRIPE_SECRET_KEY =
 STRIPE_PRICE_ID =
 
 STRIPE_WEBHOOK_SECRET =
+
+API_KEY_GEMINI_GOOGLE =
 ```
 
 Third, run the development server:
@@ -77,4 +79,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Future Updates
 
-AI Intergration and Web Scraping with the latest world updates 
+1. Web Scraping with the latest world Updates
+2. Decription TipTap Editor
+3. Mobile App
+4. Image Generation 
+5. Upload Document to Create Notes

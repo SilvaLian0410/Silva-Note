@@ -1,5 +1,6 @@
-import prisma from "@/app/lib/db";
-import { SubmitButton } from "@/components/submitbuttons";
+'use client'
+
+import { SubmitButton, AskAIButton } from "@/components/submitbuttons";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,61 +14,42 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { redirect } from "next/navigation";
-import { revalidatePath, unstable_noStore as noStore } from "next/cache";
+import { useEffect, useState } from 'react';
+import { getNoteById, updateNote } from "@/app/actions/notes";
 
-async function getData({ userId, noteId }: { userId: string; noteId: string }) {
-  noStore();
-  const data = await prisma.note.findUnique({
-    where: {
-      id: noteId,
-      userId: userId,
-    },
-    select: {
-      title: true,
-      description: true,
-      id: true,
-    },
+export default function EditNotePage({ params }: { params: { id: string } }) {
+  const [formData, setFormData] = useState({
+    title: '',
+    description: ''
   });
 
-  return data;
-}
+  useEffect(() => {
+    const loadNote = async () => {
+      try {
+        const note = await getNoteById(params.id);
+        if (note) {
+          setFormData({
+            title: note.title,
+            description: note.description
+          });
+        }
+      } catch (error) {
+        console.error('Failed to load note:', error);
+      }
+    };
 
-export default async function DynamicRoute({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
-  const data = await getData({ userId: user?.id as string, noteId: params.id });
+    loadNote();
+  }, [params.id]);
 
-  async function postData(formData: FormData) {
-    "use server";
-
-    if (!user) throw new Error("you are not allowed to access this note");
-
+  const handleSubmit = async (formData: FormData) => {
     const title = formData.get("title") as string;
     const description = formData.get("description") as string;
-
-    await prisma.note.update({
-      where: {
-        id: data?.id,
-        userId: user.id,
-      },
-      data: {
-        description: description,
-        title: title,
-      },
-    });
-    revalidatePath("/dashboard");
-    return redirect("/dashboard");
-  }
+    await updateNote(params.id, title, description);
+  };
 
   return (
     <Card>
-      <form action={postData}>
+      <form action={handleSubmit}>
         <CardHeader>
           <CardTitle>Edit Note</CardTitle>
           <CardDescription>Edit your notes here</CardDescription>
@@ -79,19 +61,29 @@ export default async function DynamicRoute({
               required
               type="text"
               name="title"
+              value={formData.title}
+              onChange={(e) => setFormData(prev => ({
+                ...prev,
+                title: e.target.value
+              }))}
               placeholder="Title for your notes"
-              defaultValue={data?.title}
             />
           </div>
 
-          <div className="flex flex-col gap-y-2">
+          <div className="flex flex-col gap-y-2 relative">
             <Label>Description</Label>
             <Textarea
               name="description"
+              value={formData.description}
+              onChange={(e) => setFormData(prev => ({
+                ...prev,
+                description: e.target.value
+              }))}
               placeholder="describe your note"
               required
-              defaultValue={data?.description}
+              className="max-h-60 h-60 w-full overflow-y-auto"
             />
+            <AskAIButton onUpdate={setFormData} currentData={formData} />
           </div>
         </CardContent>
 

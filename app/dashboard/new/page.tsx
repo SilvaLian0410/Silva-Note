@@ -1,5 +1,6 @@
-import prisma from "@/app/lib/db";
-import { SubmitButton } from "@/components/submitbuttons";
+'use client'
+import { createNote } from "@/app/actions/notes";
+import { SubmitButton, AskAIButton } from "@/components/submitbuttons";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,47 +14,17 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { redirect } from "next/navigation";
-import { unstable_noStore as noStore, revalidatePath } from "next/cache";
+import { useState } from 'react'
 
-export default async function NewNoteRoute() {
-  noStore();
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
-
-  async function postData(formData: FormData) {
-    "use server";
-
-    if (!user) {
-      throw new Error("Not authorized");
-    }
-
-    const title = formData.get("title") as string;
-    const description = formData.get("description") as string;
-
-    // Set a timeout for the database operation
-    const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error("Database operation timed out")), 30000)
-    );
-
-    const dbOperation = prisma.note.create({
-      data: {
-        userId: user?.id,
-        description: description,
-        title: title,
-      },
-    });
-
-    // Race between timeout and database operation
-    await Promise.race([dbOperation, timeoutPromise]);
-    revalidatePath("/dashboard");  
-    return redirect("/dashboard");
-  }
+export default function NewNoteRoute() {
+  const [formData, setFormData] = useState({
+    title: '',
+    description: ''
+  })
 
   return (
     <Card>
-      <form action={postData}>
+      <form action={createNote}>
         <CardHeader>
           <CardTitle>New Notes</CardTitle>
           <CardDescription>Create Your New Notes</CardDescription>
@@ -65,17 +36,29 @@ export default async function NewNoteRoute() {
               required
               type="text"
               name="title"
+              value={formData.title}
+              onChange={(e) => setFormData(prev => ({
+                ...prev,
+                title: e.target.value
+              }))}
               placeholder="Title for your notes"
             />
           </div>
 
-          <div className="flex flex-col gap-y-2">
+          <div className="flex flex-col gap-y-2 relative">
             <Label>Description</Label>
             <Textarea
               name="description"
+              value={formData.description}
+              onChange={(e) => setFormData(prev => ({
+                ...prev,
+                description: e.target.value
+              }))}
               placeholder="describe your note"
               required
+              className="max-h-60 h-60 w-full overflow-y-auto"
             />
+            <AskAIButton onUpdate={setFormData} currentData={formData} />
           </div>
         </CardContent>
 

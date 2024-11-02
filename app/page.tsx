@@ -1,15 +1,11 @@
-import Image from "next/image"; // Make sure to import Image
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ThemeAwareLogos } from "@/components/theme-aware-logo"
-import {
-  RegisterLink,
-  LoginLink,
-  LogoutLink,
-} from "@kinde-oss/kinde-auth-nextjs/components";
+import { ThemeAwareLogos } from "@/components/theme-aware-logo";
+import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { Footer } from "@/components/footer";
-
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
+import { Sparkles, Play } from "lucide-react";
 
 export default async function Home() {
   const { isAuthenticated } = await getKindeServerSession();
@@ -30,7 +26,7 @@ export default async function Home() {
                 </span>
               </span>
               <h1 className="mt-8 text-3xl font-extrabold tracking-tight lg:text-6xl">
-                Create Notes with ease
+                Create Notes with a Snap!
               </h1>
               <p className="max-w-xl mx-auto mt-8 text-base lg:text-xl text-secondary-foreground">
                 Capture ideas and organize your inspiration.
@@ -63,10 +59,56 @@ export default async function Home() {
 
       {/* Trusted By Section */}
       <section className="container mx-auto px-20 py-20 text-center">
-      <p className="text-black dark:text-gray-400 mb-8 lg:text-xl">
-     Trusted by big tech companies and universities at over <b>1,000</b>
-   </p>
+        <p className="text-black dark:text-gray-400 mb-8 lg:text-xl">
+          Trusted by big tech companies and universities at over <b>1,000</b>
+        </p>
         <ThemeAwareLogos />
+      </section>
+
+      {/* Generative AI Text Generation */}
+      <section className="container mx-auto px-4 md:px-20 py-20">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="w-full md:w-2/5 space-y-6">
+            <span className="inline-flex items-center px-6 py-3 rounded-full bg-primary">
+              <Sparkles className="text-white mr-2" />
+              <span className="text-sm font-medium text-white">
+                Text to Note
+              </span>
+            </span>
+
+            <h1 className="text-4xl font-bold leading-tight lg:text-5xl">
+              Generate Detailed Notes from Simple Prompts
+            </h1>
+
+            <p className="text-lg text-muted-foreground">
+              Transform text prompts into organized, detailed notes in seconds!
+              Describe your ideas, and Note Generator refines and structures
+              them instantly!
+            </p>
+
+            <RegisterLink>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-white transition duration-300 mt-8"
+              >
+                <Play className="w-4 h-4 mr-2" />
+                Watch It In Action
+              </Button>
+            </RegisterLink>
+          </div>
+
+          <div className="rounded-[20px] w-full md:w-3/5 flex items-center justify-center md:justify-end">
+            <div className="relative w-full max-w-2xl h-[400px] rounded-[20px] overflow-hidden bg-black">
+              <Image
+                src="/img/Text-Generation-AI.gif"
+                alt="Original logo"
+                className="object-cover w-full h-full"
+                fill
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Features Section */}
@@ -128,15 +170,9 @@ export default async function Home() {
               data-driven decisions anytime, anywhere.
             </li>
             <li>
-              <strong>Generative AI for Text Generation</strong> – Harness the
-              power of Generative AI for automatic text creation. From
-              personalized messages to data summaries, generate high-quality
-              text with ease.
-            </li>
-            <li>
-              <strong>Upload Image</strong> – Seamlessly upload images to enrich
-              your analytics experience. Visualize data, add context, and create
-              a more comprehensive view of your insights.
+              <strong>Upload Image / Documents</strong> – Seamlessly upload
+              images to enrich your analytics experience. Visualize data, add
+              context, and create a more comprehensive view of your insights.
             </li>
             <li>
               <strong>Image AI Generation</strong> – Leverage AI-powered image
@@ -144,12 +180,17 @@ export default async function Home() {
               into engaging images, enhance presentations, and captivate your
               audience.
             </li>
+            <li>
+              <strong>Web Scraping</strong> – Harness the power of AI to extract
+              and analyze data from various web sources effortlessly. Automate
+              the collection of valuable information, enabling you to visualize
+              trends, generate insights, and enhance your decision-making
+              process with ease.
+            </li>
           </ul>
           <div className="flex justify-start">
             <RegisterLink>
-              <Button size="lg">
-                Sign Up For Free
-              </Button>
+              <Button size="lg">Sign Up For Free</Button>
             </RegisterLink>
           </div>
         </div>
@@ -173,7 +214,9 @@ export default async function Home() {
             <p className="text-black dark:text-gray-400 mb-4">
               Ideal for individuals looking to get started with note-taking.
             </p>
-            <div className="text-black dark:text-white text-2xl mb-4">$30/month</div>
+            <div className="text-black dark:text-white text-2xl mb-4">
+              $30/month
+            </div>
             <RegisterLink>
               <Button variant="link" className="text-primary p-0 mb-4">
                 Get Started
@@ -188,7 +231,9 @@ export default async function Home() {
             <p className="text-black dark:text-gray-400 mb-4">
               Perfect for professionals who need advanced features and support.
             </p>
-            <div className="text-black dark:text-white text-2xl mb-4">$60/month</div>
+            <div className="text-black dark:text-white text-2xl mb-4">
+              $60/month
+            </div>
             <RegisterLink>
               <Button variant="link" className="text-primary p-0 mb-4">
                 Get Started
@@ -204,7 +249,9 @@ export default async function Home() {
               For teams and organizations that require full access and
               collaboration tools.
             </p>
-            <div className="text-black dark:text-white text-2xl mb-4">$90/month</div>
+            <div className="text-black dark:text-white text-2xl mb-4">
+              $90/month
+            </div>
             <RegisterLink>
               <Button variant="link" className="text-primary p-0 mb-4">
                 Get Started

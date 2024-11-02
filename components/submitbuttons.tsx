@@ -3,6 +3,20 @@
 import { useFormStatus } from "react-dom";
 import { Button } from "./ui/button";
 import { Loader2, Trash } from "lucide-react";
+import { Bot } from "lucide-react";
+import AskAIDialog from "./ai-dialog";
+
+// Add interface for the form data
+interface FormData {
+  title: string;
+  description: string;
+}
+
+// Add interface for the button props
+interface AskAIButtonProps {
+  onUpdate: (data: FormData) => void;
+  currentData: FormData;
+}
 
 export function SubmitButton() {
   const { pending } = useFormStatus();
@@ -19,6 +33,17 @@ export function SubmitButton() {
           Save Now
         </Button>
       )}
+    </>
+  );
+}
+
+export function AskAIButton({ onUpdate, currentData }: AskAIButtonProps) {
+  return (
+    <>
+      <AskAIDialog 
+        {...currentData} 
+        onUpdate={(newData: FormData) => onUpdate(newData)} 
+      />
     </>
   );
 }
