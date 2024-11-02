@@ -20,23 +20,66 @@ export default async function Home() {
         <section className="container mx-auto px-4 py-20 text-center">
           <div className="relative items-center w-full px-5 py-12 mx-auto lg:px-16 max-w-7xl md:px-12">
             <div className="max-w-3xl mx-auto text-center">
-              <span className="w-auto px-6 py-3 rounded-full bg-secondary">
+              <div className="inline-flex items-center px-6 py-3 rounded-full bg-secondary">
+                <div className="h-2 w-2 rounded-full bg-primary mr-2" />
                 <span className="text-sm font-medium text-primary">
-                  Sort Your Notes Easily
+                  What&apos;s New?
                 </span>
-              </span>
+                <span className="text-sm ml-2">Sort Your Notes Easily!</span>
+              </div>
               <h1 className="mt-8 text-3xl font-extrabold tracking-tight lg:text-6xl">
                 Create Notes with a Snap!
               </h1>
               <p className="max-w-xl mx-auto mt-8 text-base lg:text-xl text-secondary-foreground">
-                Capture ideas and organize your inspiration.
+                Capture ideas and organize your inspiration with ease.
               </p>
-              <div className="flex justify-center max-w-sm mx-auto mt-10">
-                <RegisterLink>
-                  <Button size="lg" className="w-full">
-                    Sign Up For Free
-                  </Button>
-                </RegisterLink>
+              <p className="max-w-xl mx-auto  text-base lg:text-xl text-secondary-foreground">
+                Start with a thought and let AI help you expand and structure
+                your notes.
+              </p>
+              <div className="mt-10 flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
+                {/* CTA Button */}
+                <div className="md:w-auto">
+                  <RegisterLink>
+                    <Button size="lg" className="w-full">
+                      Sign Up For Free
+                    </Button>
+                  </RegisterLink>
+                </div>
+
+                {/* Trust Badge */}
+                <div className="flex items-center justify-center gap-2">
+                  <div className="flex -space-x-2">
+                    <Image
+                      src="/trust/face1.avif" // Replace with your AVIF image path
+                      alt="Description of image 1"
+                      width={32} // Adjust width as needed
+                      height={32} // Adjust height as needed
+                      className="rounded-full border-2 border-black"
+                    />
+                    <Image
+                      src="/trust/face2.avif" // Replace with your AVIF image path
+                      alt="Description of image 2"
+                      width={32} // Adjust width as needed
+                      height={32} // Adjust height as needed
+                      className="rounded-full border-2 border-black"
+                    />
+                    <Image
+                      src="/trust/face3.avif" // Replace with your AVIF image path
+                      alt="Description of image 3"
+                      width={32} // Adjust width as needed
+                      height={32} // Adjust height as needed
+                      className="rounded-full border-2 border-black"
+                    />
+                  </div>
+                  <div className="flex items-center gap-1 text-yellow-400">
+                    {"★".repeat(5)}
+                  </div>
+                  <p className="text-sm text-gray-400">
+                    Trusted by over{" "}
+                    <span className="font-semibold">10k+ users</span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -60,7 +103,7 @@ export default async function Home() {
       {/* Trusted By Section */}
       <section className="container mx-auto px-20 py-20 text-center">
         <p className="text-black dark:text-gray-400 mb-8 lg:text-xl">
-          Trusted by big tech companies and universities at over <b>1,000</b>
+          Trusted by big tech companies and universities at over <b>10k+</b> users
         </p>
         <ThemeAwareLogos />
       </section>
