@@ -17,7 +17,7 @@ export default async function Home() {
     <>
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="container mx-auto px-4 py-20 text-center">
+        <section className="container mx-auto px-4 pb-10 pt-20 text-center">
           <div className="relative items-center w-full px-5 py-12 mx-auto lg:px-16 max-w-7xl md:px-12">
             <div className="max-w-3xl mx-auto text-center">
               <div className="inline-flex items-center px-6 py-3 rounded-full bg-secondary">
@@ -87,7 +87,7 @@ export default async function Home() {
       </div>
 
       {/* Dashboard Preview */}
-      <section className="container mx-auto px-4 py-20 flex justify-center items-center">
+      <section className="container mx-auto px-4 pt-10 pb-20 flex justify-center items-center">
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-red-600/30 to-orange-600/30 blur-3xl rounded-[10px]" />
           <Image
@@ -142,11 +142,11 @@ export default async function Home() {
           </div>
 
           <div className="rounded-[20px] w-full md:w-3/5 flex items-center justify-center md:justify-end">
-            <div className="relative w-full max-w-2xl h-[400px] rounded-[20px] overflow-hidden bg-black">
+            <div className="relative w-full max-w-2xl h-[400px] rounded-[20px] overflow-hidden">
               <Image
                 src="/img/Text-Generation-AI.gif"
                 alt="Original logo"
-                className="object-cover w-full h-full"
+                className="object-contain md:object-cover w-full h-full"
                 fill
               />
             </div>
