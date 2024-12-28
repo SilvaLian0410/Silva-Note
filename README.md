@@ -5,10 +5,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ![Screenshot 2024-12-17 090608](https://github.com/user-attachments/assets/198b1544-4302-4162-8275-96541bcf49dd)
 
 ## Key Feature
-1. Image Analysis using Gemini 1.5 Flash
+1. Image Analysis using Gemini 1.5 Flash <br><br>
 ![image](https://github.com/user-attachments/assets/ae4a7647-4ce2-4623-b698-a2756cb1e5b5)
 
-3. Prompt to Notes using Gemini Pro
+3. Prompt to Notes using Gemini Pro <br><br>
 ![image](https://github.com/user-attachments/assets/e9d6466f-1c2b-42d7-8df3-f9f9b83d50ad)
 ![image](https://github.com/user-attachments/assets/3f01020f-25fe-404a-89e4-2cb3685d56d1)
 
