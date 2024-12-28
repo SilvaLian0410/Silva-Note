@@ -7,6 +7,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Key Feature
 1. Image Analysis using Gemini 1.5 Flash <br><br>
 ![image](https://github.com/user-attachments/assets/ae4a7647-4ce2-4623-b698-a2756cb1e5b5)
+![image](https://github.com/user-attachments/assets/bb456968-376d-4925-865d-c27f4437abf1)
 
 3. Prompt to Notes using Gemini Pro <br><br>
 ![image](https://github.com/user-attachments/assets/e9d6466f-1c2b-42d7-8df3-f9f9b83d50ad)
