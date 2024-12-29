@@ -47,7 +47,7 @@ STRIPE_WEBHOOK_SECRET = # Refer to : https://docs.stripe.com/stripe-cli
 API_KEY_GEMINI_GOOGLE =
 ```
 
-3. Third, go to Docker file and run 
+3. Third, go to Docker folder and run 
 ```bash
 docker-compose up
 ```
