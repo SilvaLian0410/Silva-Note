@@ -15,12 +15,17 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, clone this respitory : 
+1. First, clone this respitory : 
 ```bash
 https://github.com/SilvaLian0410/Silva-Note.git
 ```
 
-Second, create an .env file fill in : 
+2. Second, create an .env or run 
+```bash
+cp .env.sample .env
+```
+
+and fill in : 
 ```bash
 KINDE_CLIENT_ID=
 KINDE_CLIENT_SECRET=
@@ -37,24 +42,33 @@ DIRECT_URL=
 STRIPE_SECRET_KEY = 
 STRIPE_PRICE_ID =
 
-STRIPE_WEBHOOK_SECRET =
+STRIPE_WEBHOOK_SECRET = # Refer to : https://docs.stripe.com/stripe-cli
 
 API_KEY_GEMINI_GOOGLE =
 ```
 
-Third, run the development server:
+3. Third, go to Docker file and run 
+```bash
+docker-compose up
+```
+
+4. Retrieve the Stripe Webhook Secret Key
+Once the container "silva_notes_stripe" is running, you will receive the Stripe webhook secret key. Make sure you have your stripe secret key in .env file. Refer to : https://docs.stripe.com/stripe-cli
+![image](https://github.com/user-attachments/assets/fd433d85-126d-456e-b5ff-2fa9b4d171dd)
+
+5. Run:
 ```bash
 npm install
 ```
 
-After putting your database DATABASE_URL= and DIRECT_URL=, run : 
+6. After putting your database DATABASE_URL= and DIRECT_URL=, run : 
 ```bash
 npx prisma db push
 ```
 To pushes the state of your Prisma schema to the database without using migrations.
 
 
-Then, run the development server:
+7. Then, run the development server:
 
 ```bash
 npm run dev
