@@ -27,20 +27,21 @@ cp .env.sample .env
 
 and fill in : 
 ```bash
-KINDE_CLIENT_ID=
-KINDE_CLIENT_SECRET=
-KINDE_ISSUER_URL=
+KINDE_CLIENT_ID= # Refer to : https://kinde.com/
+KINDE_CLIENT_SECRET= # Refer to : https://kinde.com/
+KINDE_ISSUER_URL= # Refer to : https://kinde.com/
 
-KINDE_SITE_URL=
-KINDE_POST_LOGOUT_REDIRECT_URL=
-KINDE_POST_LOGIN_REDIRECT_URL=
-SITE_URL = 
+KINDE_SITE_URL= http://localhost:3000
+KINDE_POST_LOGOUT_REDIRECT_URL= http://localhost:3000
+KINDE_POST_LOGIN_REDIRECT_URL= http://localhost:3000/dashboard
+SITE_URL = http://localhost:3000
+NEXT_PUBLIC_CLARITY_TRACKING_ID= # ( Optional)
 
-DATABASE_URL=
-DIRECT_URL=
+DATABASE_URL= postgresql://silvauser:silvapass@localhost:5432/silvanotes?schema=public
+DIRECT_URL= postgresql://silvauser:silvapass@localhost:5432/silvanotes?schema=public
 
-STRIPE_SECRET_KEY = 
-STRIPE_PRICE_ID =
+STRIPE_SECRET_KEY = Get at https://stripe.com/en-my
+STRIPE_PRICE_ID = # Refer to : https://docs.stripe.com/api/prices/create
 
 STRIPE_WEBHOOK_SECRET = # Refer to : https://docs.stripe.com/stripe-cli
 
