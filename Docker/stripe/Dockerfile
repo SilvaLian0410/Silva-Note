@@ -1,15 +1,17 @@
-FROM stripe/stripe-cli:latest
+# Use a Debian-based image
+FROM debian:bullseye-slim
 
+# Install necessary packages
+# Refer to https://github.com/stripe/stripe-cli/
+RUN apt-get update && apt-get install -y curl && \
+    curl -sL https://github.com/stripe/stripe-cli/releases/download/v1.7.8/stripe_1.7.8_linux_x86_64.tar.gz | tar xz -C /usr/local/bin
+
+#Set the working directory
 WORKDIR /app
 
-# Copy the startup script and convert line endings
+# Copy the script and ensure it is executable
 COPY start-webhook.sh .
-RUN apt-get update && apt-get install -y dos2unix && dos2unix start-webhook.sh && chmod +x start-webhook.sh
+RUN chmod +x start-webhook.sh
 
-# Check if the script exists
-RUN ls -l ./start-webhook.sh  
-
-# This will list the file to confirm it's there
-
-# Set the entrypoint to our startup script
-ENTRYPOINT ["./start-webhook.sh"]
+# Run the script
+CMD ["./start-webhook.sh"]
