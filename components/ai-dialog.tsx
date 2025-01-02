@@ -65,21 +65,26 @@ export default function AskAIDialog({ title, description, onUpdate }: AIDialogPr
   };
 
   const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]
+    const file = event.target.files?.[0];
     if (file) {
-      setSelectedImage(file)
-      const previewUrl = URL.createObjectURL(file)
-      setImagePreview(previewUrl)
-
-      // Convert image to base64 and analyze it
+      // Reset previous states
+      setImageDescription('');
+      setAnalyzing(true);
+      
+      // Set image preview
+      const previewUrl = URL.createObjectURL(file);
+      setSelectedImage(file);
+      setImagePreview(previewUrl);
+  
+      // Convert to base64 and analyze
       const reader = new FileReader();
-      reader.onloadend = () => {
+      reader.onloadend = async () => {
         const base64String = reader.result as string;
-        analyzeImage(base64String);
+        await analyzeImage(base64String);
       };
       reader.readAsDataURL(file);
     }
-  }
+  };
 
   const handleAskAI = async () => {
     try {

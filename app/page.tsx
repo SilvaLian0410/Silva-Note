@@ -5,7 +5,7 @@ import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { Footer } from "@/components/footer";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
-import { Sparkles, Play } from "lucide-react";
+import { Sparkles, Play, Fullscreen } from "lucide-react";
 
 export default async function Home() {
   const { isAuthenticated } = await getKindeServerSession();
@@ -141,7 +141,7 @@ export default async function Home() {
             </RegisterLink>
           </div>
 
-          <div className="rounded-[20px] w-full md:w-3/5 flex items-center justify-center md:justify-end">
+          <div className="rounded-[20px] w-full md:w-3/6 flex items-center justify-center md:justify-end">
             <div className="relative w-full max-w-2xl h-[400px] rounded-[20px] overflow-hidden">
               <Image
                 src="/img/Text-Generation-AI.gif"
@@ -150,6 +150,50 @@ export default async function Home() {
                 fill
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Image to Note */}
+      <section className="container mx-auto px-4 md:px-20 py-20">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+         <div className="rounded-[20px] w-full md:w-3/6 flex items-center justify-center md:justify-end order-last md:order-first">
+            <div className="relative w-full max-w-2xl h-[400px] rounded-[20px] overflow-hidden">
+              <Image
+                src="/img/Image-To-Notes.gif"
+                alt="Original logo"
+                className="object-contain md:object-cover w-full h-full"
+                fill
+              />
+            </div>
+          </div>
+          <div className="w-full md:w-2/5 space-y-6 order-first md:order-last">
+          <span className="inline-flex items-center px-6 py-3 rounded-full bg-primary">
+              <Fullscreen className="text-white mr-2" />
+              <span className="text-sm font-medium text-white">
+                Image to Note
+              </span>
+            </span>
+
+            <h1 className="text-4xl font-bold leading-tight lg:text-5xl">
+              Transform your Visuals into organized notes effortlessly.
+            </h1>
+
+            <p className="text-lg text-muted-foreground">
+              Transform your images into organized, detailed notes in seconds! 
+              Capture key insights and let our Note Generator refine and structure them instantly!
+            </p>
+
+            <RegisterLink>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-white transition duration-300 mt-8"
+              >
+                <Play className="w-4 h-4 mr-2" />
+                See It In Action
+              </Button>
+            </RegisterLink>
           </div>
         </div>
       </section>
