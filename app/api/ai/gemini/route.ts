@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     // If there's an image, analyze it first
     let imageAnalysis = '';
     if (image) {
-      const visionModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      const visionModel = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
       const imageBytes = Buffer.from(image.split(',')[1], 'base64');
       
       const imagePart = {
