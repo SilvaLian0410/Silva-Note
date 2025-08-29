@@ -7,7 +7,7 @@ import { NextResponse } from 'next/server';
 // Initialize the models
 const genAI = new GoogleGenerativeAI(process.env.API_KEY_GEMINI_GOOGLE || '');
 const model = new ChatGoogleGenerativeAI({
-  modelName: "gemini-pro",
+  modelName: "gemini-2.5-flash",
   apiKey: process.env.API_KEY_GEMINI_GOOGLE!,
   maxOutputTokens: 2048,
 });
